@@ -1,0 +1,10 @@
+CREATE TYPE IF NOT EXISTS local_manager_id (manager_id text, id text, is_configured boolean, is_configurable boolean);
+CREATE TYPE IF NOT EXISTS network_connection (storage_device_id text, speed int, connection_type text);
+CREATE TYPE IF NOT EXISTS storage_capability (capability_type text, fixed_capacity_bytes int, dedupe_ratio float);
+CREATE TYPE IF NOT EXISTS status (name text, value text, criticality text);
+CREATE TYPE IF NOT EXISTS asset_host_capability (name text, version text, status frozen<status>);
+CREATE TYPE IF NOT EXISTS logical_storage_unit(id text, storage_device_id text, asset_id text, name text,  status frozen<status>, tags set<text>, capabilities frozen<set<frozen<storage_capability>>>, used_bytes int, local_manager_ids frozen<set<frozen<local_manager_id>>>, change_rate int);
+CREATE TABLE IF NOT EXISTS tags(name text PRIMARY KEY,description text, parents set<text>,scope set<text>);
+CREATE TABLE IF NOT EXISTS storage_devices(id text PRIMARY KEY, name text,  status status, tags set<text>, connections set<frozen<network_connection>>, serial_number text, local_manager_ids set<frozen<local_manager_id>>, all_storage_units set<frozen<logical_storage_unit>>);
+CREATE TABLE IF NOT EXISTS asset_hosts(id text PRIMARY KEY, name text,  status status, tags set<text>,os_name text , os_version text, serial_number text, local_manager_ids set<frozen<local_manager_id>>, connected_storage_units set<frozen<logical_storage_unit>>, capabilities set<frozen<asset_host_capability>>);
+CREATE TABLE IF NOT EXISTS assets(id text PRIMARY KEY, asset_host_id text, name text, policy_id text, status set<frozen<status>>, tags set<text>, local_manager_ids set<frozen<local_manager_id>>, application_version text, associated_storage_units set<frozen<logical_storage_unit>>); 

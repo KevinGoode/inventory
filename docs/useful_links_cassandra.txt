@@ -1,0 +1,43 @@
+How to install on Centos 7 (from step 3)
+-----------------------------
+https://www.vultr.com/docs/how-to-install-apache-cassandra-3-11-x-on-centos-7
+
+
+Great intro. General info
+--------------------	
+EG shows how to create tables with lists, maps etc	
+https://teddyma.gitbooks.io/learncassandra/content/about/what_can_cassandra_do.html
+CSLSH
+-----
+List of csl command	https://docs.datastax.com/en/archived/cql/3.1/cql/cql_reference/cqlCommandsTOC.html
+Update func	https://docs.datastax.com/en/archived/cql/3.1/cql/cql_reference/update_r.html
+Memtable, commitlog and sst, compaction. Writes are much quicker than reads	https://teddyma.gitbooks.io/learncassandra/content/model/where_is_data_stored.html
+
+How to design  database schema
+-----------------------------
+https://www.datastax.com/dev/blog/basic-rules-of-cassandra-data-modeling
+https://shermandigital.com/blog/designing-a-cassandra-data-model/
+
+Different keyspace per customer
+-----------------------------------
+Cassandra is masterless it stores data in ring. It scales linearly	https://stackoverflow.com/questions/46964654/cassandra-customer-data-per-keyspace
+
+Designer Tool
+-----------------
+This designer sums up spirit of cassandra design IE table per query. Note doesn’t appear to support user defined types or maps but does support lists	http://kdm.dataview.org/
+
+User Defined Types
+------------------
+https://dzone.com/articles/cassandra-user-defined-types-udts
+
+Data Types
+---------
+https://docs.datastax.com/en/cql/3.3/cql/cql_reference/cql_data_types_c.html
+
+gocqlx	This extension to gosql provides data binding
+-----------------------------------------------------
+https://www.compose.com/articles/go-and-simplify-scylla-with-gocqlx/
+
+Rules for managing cluster objects and sessions	At most one session per namespace
+---------------------------------------------------------------------------------	
+https://www.datastax.com/dev/blog/4-simple-rules-when-using-the-datastax-drivers-for-cassandra
