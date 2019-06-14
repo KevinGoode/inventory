@@ -9,10 +9,10 @@ Code automatically creates a keyspace(db) per customer so should work on localho
 
 
 # Example Commands
-eg Write and write some records into inventory_demo db.
-go run main.go -c inventory_demo -w storage_device -p {\"id\":\"1\"}
-go run main.go -c inventory_demo -r storage_devices
-go run main.go -c inventory_demo -w asset_host {\"id\":\"2\"}
-go run main.go -c inventory_demo -r asset_hosts
-go run main.go -c inventory_demo -w asset -p {\"id\":\"3\"}
-go run main.go -c inventory_demo -r assets
+*eg Write and write some records into inventory_demo db.
+*go run main.go -c inventory_demo -w storage_device -p {\"id\":\"1\"}
+*go run main.go -c inventory_demo -r storage_devices
+*go run main.go -c inventory_demo -w asset_host {\"id\":\"2\"}
+*go run main.go -c inventory_demo -r asset_hosts
+*go run main.go -c inventory_demo -w asset -p {\"id\":\"3\"}
+*go run main.go -c inventory_demo -r assets
